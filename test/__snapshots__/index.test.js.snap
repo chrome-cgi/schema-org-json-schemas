@@ -304,6 +304,20 @@ Object {
         },
       ],
     },
+    "funding": Object {
+      "description": "A [[Grant]] that directly or indirectly provide funding or sponsorship for this item. See also [[ownershipFundingInfo]].",
+      "oneOf": Array [
+        Object {
+          "$ref": "schema:Grant",
+        },
+        Object {
+          "items": Object {
+            "$ref": "schema:Grant",
+          },
+          "type": "array",
+        },
+      ],
+    },
     "gender": Object {
       "anyOf": Array [
         Object {

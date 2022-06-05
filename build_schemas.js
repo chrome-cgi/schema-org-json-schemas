@@ -182,7 +182,10 @@ function getProperties(id, allProperties) {
  */
 function buildProperties(properties, allSchemaClasses) {
   return properties.reduce((accumulator, property) => {
-    const propertyLabel = property["rdfs:label"];
+    const propertyLabel =
+      typeof property["rdfs:label"] === "string"
+        ? property["rdfs:label"]
+        : property["rdfs:label"]["@value"];
     const propertyDescription = htmlToPlainText(property["rdfs:comment"]);
     if (hasHardcodedSchema(propertyLabel)) {
       set(accumulator, [propertyLabel], {
